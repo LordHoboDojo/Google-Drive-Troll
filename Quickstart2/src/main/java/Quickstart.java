@@ -99,8 +99,8 @@ public class Quickstart {
     public static void main(String[] args) throws IOException, InterruptedException {
         // Build a new authorized API client service.
         Drive service = getDriveService();
+	    // Edit Original name here
         String filename = "Rough Draft";
-        // Print the names and IDs for up to 10 files.
         FileList result = service.files().list()
              .execute();
         List<File> files = result.getItems();
@@ -117,6 +117,7 @@ public class Quickstart {
                 	
             }
             Thread.sleep(10);
+		//New File name
             String newTitle = "Error 403: Forbidden";
 			files.get(index).setTitle(newTitle);
             Files.Patch patchRequest = service.files().patch(files.get(index).getId(),files.get(index));
